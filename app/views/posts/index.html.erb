@@ -4,11 +4,10 @@
 
 <div id="posts">
   <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
+  <li><%= link_to "Post#{post.id}", post_path(post), data: {turbo_frame: 'post'}%></li>
   <% end %>
 </div>
 
 <%= link_to "New post", new_post_path %>
+
+<%= turbo_frame_tag 'post' %>
