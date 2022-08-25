@@ -33,3 +33,6 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+vendor/bundle/ruby/3.0.0/
+!vendor/bundle/ruby/3.0.0/gems/activerecord-7.0.2.3/lib/active_record/scoping/named.rb
