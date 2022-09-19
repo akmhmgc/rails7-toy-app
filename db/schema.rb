@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_09_18_062843) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_19_052016) do
   create_table "customers", force: :cascade do |t|
     t.integer "age"
     t.string "first_name"
@@ -26,13 +26,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_18_062843) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "pictures", force: :cascade do |t|
+    t.string "name"
+    t.string "imageable_type"
+    t.integer "imageable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "customer_id"
-    t.string "part_number"
     t.index ["customer_id"], name: "index_posts_on_customer_id"
   end
 
