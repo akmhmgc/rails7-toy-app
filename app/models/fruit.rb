@@ -1,4 +1,6 @@
 class Fruit < ApplicationRecord
+  has_many :pictures, as: :imageable
+
   validates_with CamelValidator, field: :name, if: -> { name.present? }
 
   # new,createだけではなくFruit.firstなどインスタンスが作られたタイミングで呼び出される
