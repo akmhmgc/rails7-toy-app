@@ -1,5 +1,6 @@
 class Fruit < ApplicationRecord
   has_many :pictures, as: :imageable
+  belongs_to :customer
 
   validates_with CamelValidator, field: :name, if: -> { name.present? }
 
